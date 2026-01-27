@@ -1,0 +1,190 @@
+:root {
+  --sidebar-width: 250px;
+  --gap: 15px;
+  --primary-color: #4e6eff;
+  --primary-dark: #00098e;
+  --text-light: #fff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #4e6eff, #00098e);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--text-light);
+  display: flex;
+  overflow: hidden;
+}
+
+.navDhika {
+  width: var(--sidebar-width);
+  background: linear-gradient(to bottom, #4e6eff, #00098e);
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  transition: transform 0.28s ease;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+}
+.navDhika.collapsed {
+  transform: translateX(calc(-1 * var(--sidebar-width)));
+}
+
+.logoDhika {
+  padding: 18px 20px;
+  background: #00098e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoDhika h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.whiteDhika { color: #fff; }
+.yellowDhika { color: #FFD700; }
+
+.navDhika ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  flex-grow: 1;
+}
+.navDhika li {
+  margin-bottom: 15px;
+}
+.navDhika > ul > li > a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 12px 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.24s ease;
+}
+.navDhika > ul > li > a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateX(6px);
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 8px;
+}
+.submenu li {
+  margin-bottom: 8px;
+}
+.submenu li a {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 10px 14px;
+  display: block;
+  border-radius: 10px;
+  transition: all 0.22s ease;
+}
+.submenu li a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: var(--gap);
+  z-index: 1200;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: left 0.28s ease, background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+.toggle-btn:hover {
+  background: #3b5dfd;
+  transform: scale(1.05);
+}
+#sidebar:not(.collapsed) ~ .toggle-btn {
+  left: calc(var(--sidebar-width) + var(--gap));
+}
+
+.mainDhika {
+  margin-left: var(--sidebar-width);
+  padding: 32px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+  transition: margin-left 0.28s ease;
+  background: transparent;
+  margin-top: 30px;
+}
+.mainDhika.expanded {
+  margin-left: 0;
+}
+.mainDhika h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.mainDhika ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.mainDhika ul li {
+  flex: 1 1 200px;
+  display: flex;
+}
+.mainDhika ul li a {
+  flex: 1;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 14px;
+  transition: all 0.22s ease;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  white-space: nowrap;
+}
+.mainDhika ul li a:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 520px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+  #sidebar:not(.collapsed) ~ .toggle-btn {
+    left: calc(var(--sidebar-width) + 10px);
+  }
+}
