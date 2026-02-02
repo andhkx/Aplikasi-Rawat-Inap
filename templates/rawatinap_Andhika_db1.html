@@ -48,7 +48,6 @@
         <div class="hasilDhika">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4><b>Daftar Rawat Inap</b></h4>
-                <a href="{{ url_for('cetak') }}" class="btn btn-success"><i class="fa-solid fa-print"></i> Cetak Semua Data</a>
             </div>
             <table class="tableDhika">
                 <tr>
@@ -57,7 +56,6 @@
                     <th>ID Kamar</th>
                     <th>Tgl Masuk</th>
                     <th>Tgl Keluar</th>
-                    <th>Aksi</th>
                 </tr>
                 {% if rawatinap_list %}
                     {% for s in  rawatinap_list %}
@@ -67,11 +65,6 @@
                         <td>{{ s[2] }}</td>
                         <td>{{ s[3] }}</td>
                         <td>{{ s[4] }}</td>
-                        <td>
-                            <a href="{{ url_for('cetak', id_rawat=s[0]) }}" class="btn btn-primary">
-                                <i class="fa-solid fa-print"></i> Cetak
-                            </a>
-                        </td>
                     </tr>
                     {% endfor %}
                 {% else %}

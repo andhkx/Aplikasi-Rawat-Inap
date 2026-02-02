@@ -53,7 +53,6 @@
                     <th>Kelas</th>
                     <th>Status</th>
                     <th>Harga</th>
-                    <th>Aksi</th>
                 </tr>
                 {% if kamar_list %}
                     {% for s in  kamar_list %}
@@ -63,9 +62,6 @@
                         <td>{{ s[2] }}</td>
                         <td>{{ s[3] }}</td>
                         <td>{{ s[4] }}</td>
-                        <td>
-                            <button class="btn btn-primary"><i class="fa-solid fa-print"></i> Cetak</button>
-                        </td>
                     </tr>
                     {% endfor %}
                 {% else %}
