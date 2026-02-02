@@ -189,8 +189,13 @@ def rawatinap():
     admin = session.get('role') == 'Admin'
     return render_template('rawatinap_Andhika_db1.html', rawatinap_list=rawatinap_list, admin=admin)
 
+<<<<<<< HEAD
 @app.route('/cetak/pasien')
 def cetak_pasien():
+=======
+@app.route('/cetak')
+def cetak():
+>>>>>>> 81adad27d066fdda2385597d6973721c5510c0ab
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT id_pasien, nama, alamat, kontak FROM pasien_dhika")
@@ -272,6 +277,7 @@ def cetak_satu_pasien(id_pasien):
     response.headers['Content-Disposition'] = f'attachment; filename=struk_pasien_{id_pasien}.pdf'
     return response
 
+<<<<<<< HEAD
 @app.route('/cetak/transaksi')
 def cetak_transaksi():
     conn = get_db_connection()
@@ -329,5 +335,7 @@ def cetak_transaksi():
     response.headers['Content-Disposition'] = 'attachment; filename=data_transaksi.pdf'
     return response
 
+=======
+>>>>>>> 81adad27d066fdda2385597d6973721c5510c0ab
 if __name__ == '__main__':
     app.run(debug=True)
